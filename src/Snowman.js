@@ -73,6 +73,10 @@ function Snowman({
     ));
   }
 
+// TODO: make boolean check for Snowman-guesses
+// giant if else statement instead
+nWrong !== maxWrong ? "Number wrong: ${nWrong}" : "You lose" : "You win"
+
   return (
       <div className="Snowman">
         <img src={(images)[nWrong]} alt={nWrong} />
