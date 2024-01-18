@@ -56,7 +56,8 @@ function Snowman({
       return newGuessed;
     });
 
-    setNWrong(n => n + (answer.includes(ltr) ? 0 : 1));
+    // setNWrong(n => n + (answer.includes(ltr) ? 0 : 1));
+    setNWrong(n => n + (answer.includes(ltr) || n === maxWrong ? 0 : 1));
   }
 
   /** generateButtons: return array of letter buttons to render */
@@ -75,12 +76,14 @@ function Snowman({
 
 // TODO: make boolean check for Snowman-guesses
 // giant if else statement instead
-nWrong !== maxWrong ? "Number wrong: ${nWrong}" : "You lose" : "You win"
+// nWrong !== maxWrong ? "Number wrong: ${nWrong}" : "You lose" : "You win"
+
+  const message = nWrong === maxWrong ? "You lose" : `Number wrong: ${nWrong}`;
 
   return (
       <div className="Snowman">
         <img src={(images)[nWrong]} alt={nWrong} />
-        <p className="Snowman-guesses">Number wrong: {nWrong}</p>
+        <p className="Snowman-guesses">{message}</p>
         <p className="Snowman-word">{guessedWord()}</p>
         <p>{generateButtons()}</p>
       </div>

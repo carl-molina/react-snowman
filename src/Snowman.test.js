@@ -28,15 +28,18 @@ describe("test for maxWrong guesses", function () {
       images={[img0, img1, img2, img3, img4, img5, img6]}
       words={["apple"]} />);
 
-    fireEvent.click(container.querySelector(`button[value="z"]`));
-    fireEvent.click(container.querySelector(`button[value="y"]`));
-    fireEvent.click(container.querySelector(`button[value="x"]`));
-    fireEvent.click(container.querySelector(`button[value="w"]`));
-    fireEvent.click(container.querySelector(`button[value="v"]`));
-    fireEvent.click(container.querySelector(`button[value="u"]`));
+    fireEvent.click(container.querySelector(`button[value="t"]`));
+    fireEvent.click(container.querySelector(`button[value="i"]`));
+    fireEvent.click(container.querySelector(`button[value="s"]`));
+    fireEvent.click(container.querySelector(`button[value="j"]`));
+    fireEvent.click(container.querySelector(`button[value="n"]`));
+    fireEvent.click(container.querySelector(`button[value="g"]`));
 
-    expect(container.querySelector("p.Snowman-guesses")).toContainHTML("You lose");
-    expect(container).toContainHTML(`img alt="6" src="6.png"`);
+    expect(container.querySelector("p.Snowman-guesses"))
+      .toContainHTML("You lose");
 
+    const img = container.querySelector('img');
+    expect(img.getAttribute("alt")).toEqual("6");
+    expect(img.getAttribute("src")).toEqual("6.png");
   });
 });
